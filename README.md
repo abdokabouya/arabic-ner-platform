@@ -28,7 +28,8 @@ Unlike standard command-line scripts, this tool provides a visual interface that
 * Python 3.8+
 * Internet connection (for downloading models)
 cd arabic-ner-platform
-📖 User Manual
+
+###📖 User Manual
 1. The Interface
 The application is divided into three main sections:
 
@@ -86,4 +87,5 @@ This project is open-source. Feel free to modify and distribute.
 ### 1. Clone the Repository
 ```bash
 git clone [https://github.com/abdo-kao/arabic-ner-platform.git](https://github.com/abdo-kao/arabic-ner-platform.git)
+
 
