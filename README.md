@@ -1,91 +1,131 @@
+
 # 🦅 Arabic NER Professional Platform
 
-**A comprehensive desktop application for Named Entity Recognition (NER) in Arabic texts, supporting multiple Transformer models and dynamic model loading.**
+**A professional desktop application for Named Entity Recognition (NER) in Arabic texts. This tool allows researchers and developers to extract names, locations, and organizations using state-of-the-art AI models without writing code.**
 
-## 📌 Project Definition
-The **Arabic NER Platform** is a Python-based GUI application designed to simplify the process of extracting entities (Persons, Locations, Organizations, etc.) from Arabic text.
+---
 
-Unlike standard command-line scripts, this tool provides a visual interface that allows researchers, linguists, and developers to:
-1.  **Visualize** NER results with color-coded tags.
-2.  **Compare** different state-of-the-art models (CAMeL Tools, mBERT, XLM-R, etc.) side-by-side.
-3.  **Analyze** performance speed and entity counts.
-4.  **Download** new models directly from Hugging Face without writing code.
+## 📌 Project Definition (نبذة عن المشروع)
+The **Arabic NER Platform** is a graphical interface (GUI) built with Python that simplifies the use of complex Artificial Intelligence models for the Arabic language.
+
+Instead of running complex scripts in a command line, this application provides a user-friendly window where you can:
+1.  **Input Arabic text** and immediately see extracted entities (Persons, Locations, Organizations).
+2.  **Compare different AI models** side-by-side to see which one performs best.
+3.  **Download new models** directly from Hugging Face with a single click.
+4.  **Export results** to Excel for further analysis.
+
+It is designed for linguists, data scientists, and developers who need a quick and powerful tool for Arabic text analysis.
+
+---
 
 ## ✨ Key Features
-* **Multi-Model Support:** Comes pre-loaded with top Arabic NER models:
-    * CAMeL Tools (Standard)
-    * CamelBERT (MSA & Mix/Dialect)
-    * mBERT & DistilBERT (Multilingual)
-    * XLM-RoBERTa
-* **Dynamic Model Loading:** Add *any* Hugging Face NER model simply by pasting the repository link (e.g., `marefa-nlp/marefa-ner`).
-* **Side-by-Side Comparison:** Run multiple models on the same text and see the results aligned horizontally to compare accuracy.
-* **Excel Export:** Save your analysis to an Excel file, including a detailed breakdown of entities and a summary chart.
-* **Visual Interface:** Built with `Tkinter`, offering a clean, native desktop experience with a "CMD-style" download window for transparency.
+* **Multi-Model Support:** Comes pre-loaded with top models like **CAMeL Tools**, **mBERT**, **CamelBERT**, and **XLM-RoBERTa**.
+* **Dynamic Model Loading:** You can add *any* model from Hugging Face by simply pasting its link.
+* **Visual Comparison:** Run multiple models on the same text and see the results aligned side-by-side.
+* **Excel Export:** Save your work to an Excel file, including charts and detailed statistics.
+* **Color-Coded Visualization:** Entities are highlighted automatically (Blue for Person, Green for Location, etc.).
 
-## 🛠️ Installation
+---
 
-### Prerequisites
-* Python 3.8+
-* Internet connection (for downloading models)
-cd arabic-ner-platform
+## ⚙️ Installation Requirements (متطلبات التثبيت)
 
-###📖 User Manual
-1. The Interface
-The application is divided into three main sections:
+Before running the app, ensure you have the following installed on your computer:
 
-Top Section: Input area for your Arabic text.
+### 1. System Requirements
+* **OS:** Windows, macOS, or Linux.
+* **Python:** Version 3.8 or higher.
+* **Internet:** Required for the first run to download the AI models.
 
-Control Bar: Dropdown menu to select models, buttons to run analysis, add models, or export data.
+### 2. Python Libraries
+You need to install the dependencies listed in `requirements.txt`.
 
-Bottom Canvas: A scrollable area where results appear side-by-side.
+---
 
-2. Analyzing Text
-Paste your Arabic text into the input box at the top.
+## 🚀 Installation Guide (steps)
 
-Select a model from the dropdown menu (Default: CAMeL Tools).
+Follow these steps to set up the project on your machine:
 
-Click the green "تشغيل (+)" (Run) button.
-
-The result will appear in a new column below, showing the processing time and extracted entities colored by type:
-
-🟦 Blue: Person (PER)
-
-🟩 Green: Location (LOC)
-
-🟧 Orange: Organization (ORG)
-
-🟨 Yellow: Miscellaneous (MISC)
-
-3. Comparing Models
-To compare models, simply change the selection in the dropdown (e.g., switch to CamelBERT) and click Run (+) again. A new column will appear next to the previous one, allowing you to see how different models handle the same text.
-
-4. Adding a New Model (Hugging Face)
-Click the purple "➕ إضافة نموذج جديد" button.
-
-Enter the Hugging Face model path (e.g., aubmindlab/bert-base-arabertv02).
-
-Enter a display name (e.g., AraBERT v02).
-
-A terminal window will open showing the download progress. Once finished, the model is automatically added to your dropdown menu.
-
-5. Exporting Results
-Click the blue "📊 حفظ Excel" button to save a report. The Excel file contains:
-
-Data Sheet: Detailed list of tokens and labels for every model run.
-
-Analysis Sheet: Summary of entity counts and execution time with a bar chart.
-
-📂 Project Structure
-app.py: The main entry point containing the Tkinter GUI logic and threading.
-
-ner_model.py: The backend logic handling transformers, camel-tools, and PyTorch operations.
-
-📜 License
-This project is open-source. Feel free to modify and distribute.
-
-
-### 1. Clone the Repository
+### Step 1: Clone the Repository
+Download the project files to your computer.
 ```bash
 git clone [https://github.com/abdo-kao/arabic-ner-platform.git](https://github.com/abdo-kao/arabic-ner-platform.git)
+cd arabic-ner-platform
+````
 
+### Step 2: Install Dependencies
 
+Install the necessary Python libraries.
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 3: Install CAMeL Tools Data
+
+This is a **critical step**. The app uses CAMeL Tools, which requires a specific dataset. Run this command in your terminal:
+
+```bash
+camel_data -i ner-arabert
+```
+
+*(Note: This download is large \~1GB. Please wait for it to finish).*
+
+-----
+
+## 📖 User Manual (دليل الاستخدام)
+
+### How to Run the App
+
+Open your terminal inside the project folder and type:
+
+```bash
+python app.py
+```
+
+### How to Use
+
+1.  **Enter Text:** Paste your Arabic text into the input box at the top of the window.
+2.  **Select Model:** Choose a model from the dropdown menu (e.g., *CAMeL Tools* or *CamelBERT*).
+3.  **Run:** Click the green **Run (+)** button.
+      * The app will analyze the text and display the results in a new column.
+      * Entities will be colored: **Person (Blue)**, **Location (Green)**, **Organization (Orange)**.
+4.  **Compare:** To compare, select a different model from the menu and click **Run (+)** again. A new column will appear next to the first one.
+5.  **Save:** Click **Save Excel** to export a report containing all the results and a comparison chart.
+
+### How to Add a New Model
+
+1.  Click the purple **"➕ Add New Model"** button.
+2.  Go to [Hugging Face](https://www.google.com/search?q=https://huggingface.co/models%3Fpipeline_tag%3Dtoken-classification%26language%3Dar) and copy the model ID (e.g., `aubmindlab/bert-base-arabertv02`).
+3.  Paste the ID into the app and give it a name.
+4.  Wait for the download to finish.
+
+-----
+
+## 📂 Project Structure
+
+  * `app.py`: The main application file containing the User Interface (GUI).
+  * `ner_model.py`: The backend logic that handles the AI models.
+  * `requirements.txt`: List of libraries needed to run the app.
+  * `README.md`: This documentation file.
+
+## 📄 License
+
+This project is open-source. Feel free to use, modify, and distribute it.
+
+````
+
+---
+
+### **Don't forget the `requirements.txt` file**
+Make sure this file is also in your repository so users know what to install:
+
+**File Name:** `requirements.txt`
+```text
+torch
+transformers
+camel-tools
+pandas
+xlsxwriter
+numpy
+tqdm
+````
