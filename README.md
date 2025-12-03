@@ -31,4 +31,58 @@ Unlike standard command-line scripts, this tool provides a visual interface that
 ### 1. Clone the Repository
 ```bash
 git clone [https://github.com/abdo-kao/arabic-ner-platform.git](https://github.com/abdo-kao/arabic-ner-platform.git)
+
 cd arabic-ner-platform
+📖 User Manual
+1. The Interface
+The application is divided into three main sections:
+
+Top Section: Input area for your Arabic text.
+
+Control Bar: Dropdown menu to select models, buttons to run analysis, add models, or export data.
+
+Bottom Canvas: A scrollable area where results appear side-by-side.
+
+2. Analyzing Text
+Paste your Arabic text into the input box at the top.
+
+Select a model from the dropdown menu (Default: CAMeL Tools).
+
+Click the green "تشغيل (+)" (Run) button.
+
+The result will appear in a new column below, showing the processing time and extracted entities colored by type:
+
+🟦 Blue: Person (PER)
+
+🟩 Green: Location (LOC)
+
+🟧 Orange: Organization (ORG)
+
+🟨 Yellow: Miscellaneous (MISC)
+
+3. Comparing Models
+To compare models, simply change the selection in the dropdown (e.g., switch to CamelBERT) and click Run (+) again. A new column will appear next to the previous one, allowing you to see how different models handle the same text.
+
+4. Adding a New Model (Hugging Face)
+Click the purple "➕ إضافة نموذج جديد" button.
+
+Enter the Hugging Face model path (e.g., aubmindlab/bert-base-arabertv02).
+
+Enter a display name (e.g., AraBERT v02).
+
+A terminal window will open showing the download progress. Once finished, the model is automatically added to your dropdown menu.
+
+5. Exporting Results
+Click the blue "📊 حفظ Excel" button to save a report. The Excel file contains:
+
+Data Sheet: Detailed list of tokens and labels for every model run.
+
+Analysis Sheet: Summary of entity counts and execution time with a bar chart.
+
+📂 Project Structure
+app.py: The main entry point containing the Tkinter GUI logic and threading.
+
+ner_model.py: The backend logic handling transformers, camel-tools, and PyTorch operations.
+
+📜 License
+This project is open-source. Feel free to modify and distribute.
