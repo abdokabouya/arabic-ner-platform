@@ -27,11 +27,6 @@ Unlike standard command-line scripts, this tool provides a visual interface that
 ### Prerequisites
 * Python 3.8+
 * Internet connection (for downloading models)
-
-### 1. Clone the Repository
-```bash
-git clone [https://github.com/abdo-kao/arabic-ner-platform.git](https://github.com/abdo-kao/arabic-ner-platform.git)
-
 cd arabic-ner-platform
 📖 User Manual
 1. The Interface
@@ -86,3 +81,9 @@ ner_model.py: The backend logic handling transformers, camel-tools, and PyTorch 
 
 📜 License
 This project is open-source. Feel free to modify and distribute.
+
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/abdo-kao/arabic-ner-platform.git](https://github.com/abdo-kao/arabic-ner-platform.git)
+
